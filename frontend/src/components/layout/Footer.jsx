@@ -133,10 +133,8 @@ export default function Footer() {
           <ul className="space-y-3 text-sm">
             <li><a href="#policy" className="hover:text-blue-400 transition-colors">Chính sách bảo hành 24 tháng chính hãng</a></li>
             <li><a href="#return" className="hover:text-blue-400 transition-colors">Chính sách đổi mới 1 đổi 1 trong 30 ngày</a></li>
-            <li><a href="#installment" className="hover:text-blue-400 transition-colors">Hướng dẫn mua trả góp 0% qua thẻ tín dụng</a></li>
-            <li><a href="#shipping" className="hover:text-blue-400 transition-colors">Giao hàng hỏa tốc 2H &amp; Thu hộ COD</a></li>
-            <li><a href="#vat" className="hover:text-blue-400 transition-colors">Chính sách xuất hóa đơn GTGT điện tử</a></li>
-            <li><a href="#privacy" className="hover:text-blue-400 transition-colors">Chính sách bảo mật thông tin người dùng</a></li>
+            <li><a href="#shipping" className="hover:text-blue-400 transition-colors">Giao hàng hỏa tốc</a></li>
+            <li><a href="#privacy" className="hover:text-blue-400 transition-colors">Bảo mật thông tin người dùng</a></li>
           </ul>
         </div>
 
@@ -171,16 +169,6 @@ export default function Footer() {
               Đã Đăng Ký Bộ Công Thương
             </p>
             <p className="text-[11px] text-slate-400">Giấy phép ĐKKD số: 0318928392 do Sở KH&amp;ĐT TP.HCM cấp</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom Legal */}
-      <div className="border-t border-slate-800 py-6 bg-slate-950">
-        <div className="max-w-[1650px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-slate-500">
-          <p>© 2026 K-Tech Store. Nền tảng thương mại điện tử chuyên Laptop &amp; Phụ kiện công nghệ cao.</p>
-          <div className="flex items-center gap-4">
-            <span>Thiết kế hiện đại với React 19 + Tailwind CSS</span>
           </div>
         </div>
       </div>

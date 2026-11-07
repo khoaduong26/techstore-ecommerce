@@ -6,9 +6,6 @@ import {
   ArrowLeftRight,
   Heart,
   User,
-  ShieldCheck,
-  Truck,
-  PhoneCall,
   Flame,
   Menu,
   X,
@@ -75,52 +72,7 @@ export default function Navbar() {
           : 'bg-white/95 border-b border-slate-200/90 backdrop-blur-md'
       }`}
     >
-      {/* 1. Top Announcement Bar - smoothly collapses on scroll to maximize screen space */}
-      <div
-        className={`bg-slate-900 text-slate-200 text-xs sm:text-sm px-4 sm:px-6 lg:px-8 xl:px-12 border-b border-slate-800 transition-all duration-300 overflow-hidden ${
-          isScrolled ? 'max-h-0 py-0 opacity-0 pointer-events-none' : 'max-h-12 py-2.5 opacity-100'
-        }`}
-      >
-        <div className="max-w-[1650px] mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-5">
-            <span className="flex items-center gap-2 text-blue-400 font-semibold">
-              <Truck className="w-4 h-4" />
-              <span>Freeship toàn quốc đơn từ 500.000₫</span>
-            </span>
-            <span className="hidden sm:inline text-slate-600">•</span>
-            <span className="hidden sm:flex items-center gap-2 text-emerald-400 font-semibold">
-              <ShieldCheck className="w-4 h-4" />
-              <span>100% Phân Phối Chính Hãng • Bảo Hành 24 Tháng</span>
-            </span>
-          </div>
-
-          <div className="flex items-center gap-5 text-slate-300">
-            <span className="hidden md:flex items-center gap-1.5">
-              <PhoneCall className="w-3.5 h-3.5 text-blue-400" />
-              <span>Hotline tư vấn: <strong className="text-white font-bold">1800 6868</strong></span>
-            </span>
-            <span className="hidden md:inline text-slate-700">|</span>
-            <button
-              onClick={() => navigateTo('my-orders')}
-              className="hover:text-blue-400 font-medium transition-colors cursor-pointer"
-            >
-              Tra cứu đơn hàng
-            </button>
-            <span className="text-slate-700">|</span>
-            <button
-              onClick={() => {
-                setSelectedCategory('all');
-                navigateTo('catalog');
-              }}
-              className="hover:text-amber-200 transition-colors text-amber-300 font-bold"
-            >
-              Đặc quyền K-Tech Campus 2025
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. Main Header Bar */}
+      {/* Main Header Bar */}
       <div
         className={`max-w-[1650px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 flex items-center justify-between gap-4 lg:gap-8 transition-all duration-300 ${
           isScrolled ? 'py-3' : 'py-4'
@@ -196,10 +148,7 @@ export default function Navbar() {
 
           {/* Wishlist Button */}
           <button
-            onClick={() => {
-              setSelectedCategory('all');
-              navigateTo('catalog');
-            }}
+            onClick={() => navigateTo('wishlist')}
             className="relative p-2.5 text-slate-700 hover:text-rose-600 hover:bg-slate-50 rounded-2xl transition-colors flex flex-col items-center cursor-pointer"
             title="Yêu thích"
           >
@@ -301,16 +250,21 @@ export default function Navbar() {
                 )}
               </div>
             ) : (
-              <button
-                onClick={() => {
-                  setAuthTab('login');
-                  setIsAuthModalOpen(true);
-                }}
-                className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold rounded-2xl shadow-xs transition-colors cursor-pointer"
-              >
-                <User className="w-4 h-4" />
-                <span>Đăng nhập</span>
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => navigateTo('login')}
+                  className="flex items-center gap-1.5 px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold rounded-xl transition-colors cursor-pointer"
+                >
+                  <User className="w-4 h-4 text-slate-500" />
+                  <span>Đăng nhập</span>
+                </button>
+                <button
+                  onClick={() => navigateTo('register')}
+                  className="hidden sm:flex items-center gap-1 px-3.5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow-xs transition-colors cursor-pointer"
+                >
+                  <span>Đăng ký</span>
+                </button>
+              </div>
             )}
           </div>
 
@@ -420,6 +374,20 @@ export default function Navbar() {
             </button>
             <button
               onClick={() => {
+                navigateTo('wishlist');
+                setIsMobileMenuOpen(false);
+              }}
+              className="w-full text-left px-3.5 py-2.5 font-medium text-slate-700 rounded-xl hover:bg-slate-50 flex items-center justify-between"
+            >
+              <span>Sản phẩm yêu thích</span>
+              {wishlist.length > 0 && (
+                <span className="px-2 py-0.5 rounded-full bg-rose-100 text-rose-700 text-xs font-bold">
+                  {wishlist.length}
+                </span>
+              )}
+            </button>
+            <button
+              onClick={() => {
                 navigateTo('my-orders');
                 setIsMobileMenuOpen(false);
               }}
@@ -427,6 +395,28 @@ export default function Navbar() {
             >
               Đơn hàng của tôi
             </button>
+            {!user && (
+              <div className="pt-2 border-t border-slate-100 grid grid-cols-2 gap-2">
+                <button
+                  onClick={() => {
+                    navigateTo('login');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full py-2 bg-slate-100 text-slate-800 text-xs font-bold rounded-xl text-center"
+                >
+                  Đăng nhập
+                </button>
+                <button
+                  onClick={() => {
+                    navigateTo('register');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full py-2 bg-blue-600 text-white text-xs font-bold rounded-xl text-center"
+                >
+                  Đăng ký
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}

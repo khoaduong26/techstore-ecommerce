@@ -220,16 +220,19 @@ export function ShopProvider({ children }) {
 
   // Wishlist functions
   const toggleWishlist = (productId) => {
-    setWishlist((prev) => {
-      const exists = prev.includes(productId);
-      if (exists) {
-        addToast('Đã bỏ thích sản phẩm', 'info');
-        return prev.filter((id) => id !== productId);
-      } else {
-        addToast('Đã thêm sản phẩm vào danh sách yêu thích!');
-        return [...prev, productId];
-      }
-    });
+    const exists = wishlist.includes(productId);
+    if (exists) {
+      setWishlist((prev) => prev.filter((id) => id !== productId));
+      addToast('Đã bỏ thích sản phẩm', 'info');
+    } else {
+      setWishlist((prev) => [...prev, productId]);
+      addToast('Đã thêm sản phẩm vào danh sách yêu thích!');
+    }
+  };
+
+  const clearWishlist = () => {
+    setWishlist([]);
+    addToast('Đã xóa toàn bộ danh sách yêu thích', 'info');
   };
 
   const isInWishlist = (productId) => {
@@ -408,6 +411,7 @@ export function ShopProvider({ children }) {
         // wishlist
         wishlist,
         toggleWishlist,
+        clearWishlist,
         isInWishlist,
         // auth
         user,

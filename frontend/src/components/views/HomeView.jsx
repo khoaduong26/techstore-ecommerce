@@ -119,7 +119,7 @@ export default function HomeView() {
                 <img
                   src={PRODUCTS[0].images[0]}
                   alt="ASUS ROG Strix G16"
-                  className="w-full aspect-[4/3] object-contain my-4 group-hover:scale-105 transition-transform duration-500"
+                  className="w-full aspect-4/3 object-contain my-4 group-hover:scale-105 transition-transform duration-500"
                 />
 
                 <div className="space-y-2 text-left">
@@ -193,7 +193,7 @@ export default function HomeView() {
       </section>
 
       {/* 3. Flash Sale Deal Sốc */}
-      <section className="bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 rounded-3xl p-6 sm:p-10 text-white shadow-xl">
+      <section className="bg-linear-to-r from-red-600 via-rose-600 to-amber-600 rounded-3xl p-6 sm:p-10 text-white shadow-xl">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-white/20">
           <div className="flex items-center gap-4">
             <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-md">

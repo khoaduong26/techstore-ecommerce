@@ -15,6 +15,9 @@ import CheckoutView from './components/views/CheckoutView';
 import OrderSuccessView from './components/views/OrderSuccessView';
 import OrdersView from './components/views/OrdersView';
 import ProfileView from './components/views/ProfileView';
+import LoginView from './components/views/LoginView';
+import RegisterView from './components/views/RegisterView';
+import WishlistView from './components/views/WishlistView';
 
 function MainContent() {
   const { currentView } = useShop();
@@ -37,6 +40,12 @@ function MainContent() {
         return <OrdersView />;
       case 'profile':
         return <ProfileView />;
+      case 'login':
+        return <LoginView />;
+      case 'register':
+        return <RegisterView />;
+      case 'wishlist':
+        return <WishlistView />;
       case 'home':
       default:
         return <HomeView />;
