@@ -45,7 +45,7 @@ export default function WishlistView() {
           </button>
           <h1 className="text-2xl sm:text-3xl font-black text-slate-900 flex items-center gap-3">
             <Heart className="w-7 h-7 text-rose-500 fill-rose-500" />
-            <span>Danh Sách Yêu Thích Của Bạn ({favoritedProducts.length} sản phẩm)</span>
+            <span>Danh Sách Yêu Thích Của Bạn - {favoritedProducts.length} sản phẩm</span>
           </h1>
         </div>
 
