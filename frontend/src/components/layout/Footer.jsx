@@ -64,7 +64,7 @@ export default function Footer() {
                 Zalo
               </a>
               <a
-                href="https://www.instagram.com/khoa.duong.261125"
+                href="https://www.instagram.com/ka.dwg/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-1.5 rounded-full border border-slate-700 text-xs font-medium text-slate-300 hover:border-blue-400 hover:text-white hover:bg-slate-800 transition-all bg-slate-800/60 shadow-2xs"
